@@ -12,12 +12,14 @@ from aind_behavior_implementation_example.task_logic import (
 
 task_logic = AindBehaviorImplementationExampleTaskLogic(
     task_parameters=AindBehaviorImplementationExampleTaskParameters(
+        max_trial_time=60,
+        initial_delay_time=5,
         trials=[
             Trial(temporal_frequency=1, target_interval=1),
-            Trial(temporal_frequency=1, target_interval=1),
+            Trial(temporal_frequency=2, target_interval=2),
             Trial(temporal_frequency=1, target_interval=1),
             Trial(temporal_frequency=2, target_interval=2),
-            Trial(temporal_frequency=2, target_interval=2)
+            Trial(temporal_frequency=1, target_interval=1)
         ]
     ),
 )

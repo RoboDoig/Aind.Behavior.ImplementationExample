@@ -21,6 +21,8 @@ class AindBehaviorImplementationExampleTaskParameters(TaskParameters):
     Complete parameter specification for the implementation-example task.
     """
     trials: List[Trial]
+    max_trial_time: float
+    initial_delay_time: float
 
 class AindBehaviorImplementationExampleTaskLogic(AindBehaviorTaskLogicModel):
     """

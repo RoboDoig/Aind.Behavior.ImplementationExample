@@ -115,10 +115,20 @@
           },
           "title": "Trials",
           "type": "array"
+        },
+        "max_trial_time": {
+          "title": "Max Trial Time",
+          "type": "number"
+        },
+        "initial_delay_time": {
+          "title": "Initial Delay Time",
+          "type": "number"
         }
       },
       "required": [
-        "trials"
+        "trials",
+        "max_trial_time",
+        "initial_delay_time"
       ],
       "title": "AindBehaviorImplementationExampleTaskParameters",
       "type": "object"

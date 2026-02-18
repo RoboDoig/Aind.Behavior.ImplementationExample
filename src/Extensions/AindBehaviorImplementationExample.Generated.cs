@@ -339,6 +339,10 @@ namespace AindBehaviorImplementationExampleDataSchema
     
         private System.Collections.Generic.List<Trial> _trials;
     
+        private double _maxTrialTime;
+    
+        private double _initialDelayTime;
+    
         public AindBehaviorImplementationExampleTaskParameters()
         {
             _aindBehaviorServicesPkgVersion = "0.12.5";
@@ -350,6 +354,8 @@ namespace AindBehaviorImplementationExampleDataSchema
             _rngSeed = other._rngSeed;
             _aindBehaviorServicesPkgVersion = other._aindBehaviorServicesPkgVersion;
             _trials = other._trials;
+            _maxTrialTime = other._maxTrialTime;
+            _initialDelayTime = other._initialDelayTime;
         }
     
         /// <summary>
@@ -397,6 +403,32 @@ namespace AindBehaviorImplementationExampleDataSchema
             }
         }
     
+        [Newtonsoft.Json.JsonPropertyAttribute("max_trial_time", Required=Newtonsoft.Json.Required.Always)]
+        public double MaxTrialTime
+        {
+            get
+            {
+                return _maxTrialTime;
+            }
+            set
+            {
+                _maxTrialTime = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("initial_delay_time", Required=Newtonsoft.Json.Required.Always)]
+        public double InitialDelayTime
+        {
+            get
+            {
+                return _initialDelayTime;
+            }
+            set
+            {
+                _initialDelayTime = value;
+            }
+        }
+    
         public System.IObservable<AindBehaviorImplementationExampleTaskParameters> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new AindBehaviorImplementationExampleTaskParameters(this)));
@@ -411,7 +443,9 @@ namespace AindBehaviorImplementationExampleDataSchema
         {
             stringBuilder.Append("RngSeed = " + _rngSeed + ", ");
             stringBuilder.Append("AindBehaviorServicesPkgVersion = " + _aindBehaviorServicesPkgVersion + ", ");
-            stringBuilder.Append("Trials = " + _trials);
+            stringBuilder.Append("Trials = " + _trials + ", ");
+            stringBuilder.Append("MaxTrialTime = " + _maxTrialTime + ", ");
+            stringBuilder.Append("InitialDelayTime = " + _initialDelayTime);
             return true;
         }
     
