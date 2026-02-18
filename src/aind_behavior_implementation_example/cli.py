@@ -4,9 +4,8 @@ from pydantic import Field, RootModel
 from pydantic_settings import BaseSettings, CliApp, CliSubCommand
 
 from aind_behavior_implementation_example import __semver__, regenerate
-from aind_behavior_implementation_example.data_mappers import DataMapperCli
+# from aind_behavior_implementation_example.data_mappers import DataMapperCli
 from aind_behavior_implementation_example.data_qc import DataQcCli
-from aind_behavior_implementation_example.launcher import ClabeCli
 
 
 class VersionCli(RootModel):
@@ -23,17 +22,14 @@ class DslRegenerateCli(RootModel):
         regenerate.main()
 
 
-class ImplementationExample(BaseSettings, cli_prog_name="implementation-example", cli_kebab_case=True):
-    data_mapper: CliSubCommand[DataMapperCli] = Field(description="Generate metadata for aind-data-schema.")
+class VrForagingCli(BaseSettings, cli_prog_name="vr-foraging", cli_kebab_case=True):
+    # data_mapper: CliSubCommand[DataMapperCli] = Field(description="Generate metadata for aind-data-schema.")
     data_qc: CliSubCommand[DataQcCli] = Field(description="Run data quality checks.")
     version: CliSubCommand[VersionCli] = Field(
-        description="Print the version of the implementation-example package.",
+        description="Print the version of the vr-foraging package.",
     )
     regenerate: CliSubCommand[DslRegenerateCli] = Field(
-        description="Regenerate the implementation-example dsl dependencies.",
-    )
-    clabe: CliSubCommand[ClabeCli] = Field(
-        description="Run the Clabe CLI.",
+        description="Regenerate the vr-foraging dsl dependencies.",
     )
 
     def cli_cmd(self):
@@ -41,7 +37,7 @@ class ImplementationExample(BaseSettings, cli_prog_name="implementation-example"
 
 
 def main():
-    CliApp().run(ImplementationExample)
+    CliApp().run(VrForagingCli)
 
 
 if __name__ == "__main__":

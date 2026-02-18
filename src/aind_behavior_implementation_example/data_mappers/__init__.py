@@ -5,7 +5,7 @@ from typing import Optional
 
 import pydantic
 import pydantic_settings
-from aind_behavior_services.session import AindBehaviorSessionModel
+from aind_behavior_services.session import Session
 from aind_behavior_services.utils import model_from_json_file
 from git import Repo
 
@@ -14,15 +14,15 @@ from aind_behavior_implementation_example.task_logic import AindBehaviorImplemen
 
 from ._rig import AindRigDataMapper
 from ._session import AindSessionDataMapper
-from ._utils import TrackedDevices, coerce_to_aind_data_schema, write_ads_mappers
+# from ._utils import TrackedDevices, coerce_to_aind_data_schema, write_ads_mappers
 
 __all__ = [
     "AindRigDataMapper",
     "AindSessionDataMapper",
     "DataMapperCli",
-    "TrackedDevices",
-    "coerce_to_aind_data_schema",
-    "write_ads_mappers",
+    # "TrackedDevices",
+    # "coerce_to_aind_data_schema",
+    # "write_ads_mappers",
 ]
 
 logger = logging.getLogger(__name__)
@@ -40,7 +40,7 @@ class DataMapperCli(pydantic_settings.BaseSettings, cli_kebab_case=True):
     def cli_cmd(self):
         logger.info("Mapping metadata directly from dataset.")
         abs_schemas_path = Path(self.data_path) / "Behavior" / "Logs"
-        session = model_from_json_file(abs_schemas_path / "session_input.json", AindBehaviorSessionModel)
+        session = model_from_json_file(abs_schemas_path / "session_input.json", Session)
         rig = model_from_json_file(abs_schemas_path / "rig_input.json", AindBehaviorImplementationExampleRig)
         task_logic = model_from_json_file(abs_schemas_path / "tasklogic_input.json", AindBehaviorImplementationExampleTaskLogic)
         repo = Repo(self.repo_path)
