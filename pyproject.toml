@@ -73,5 +73,6 @@ skip = '.git,*.pdf,*.svg,./bonsai,*.bonsai,./docs/_build,uv.lock,*Generated.cs'
 ignore-words-list = 'nd'
 
 [tool.uv]
+prerelease = "allow"
 default-groups = ['dev']
 required-version = '>=0.8.4'
