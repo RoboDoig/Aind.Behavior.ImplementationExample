@@ -1,8 +1,8 @@
 import logging
 from typing import Literal, List
 
-import aind_behavior_services.task_logic.distributions as distributions
-from aind_behavior_services.task_logic import AindBehaviorTaskLogicModel, TaskParameters
+import aind_behavior_services.task.distributions as distributions
+from aind_behavior_services.task import Task, TaskParameters
 from pydantic import Field, BaseModel
 
 from aind_behavior_implementation_example import (
@@ -24,7 +24,7 @@ class AindBehaviorImplementationExampleTaskParameters(TaskParameters):
     max_trial_time: float
     initial_delay_time: float
 
-class AindBehaviorImplementationExampleTaskLogic(AindBehaviorTaskLogicModel):
+class AindBehaviorImplementationExampleTaskLogic(Task):
     """
     Main task logic model for the implementation-example task.
     """

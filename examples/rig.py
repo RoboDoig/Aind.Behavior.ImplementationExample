@@ -1,6 +1,8 @@
 import os
+from pathlib import Path
 
-import aind_behavior_services.rig as rig
+import aind_behavior_services.rig.harp as harp
+import aind_behavior_services.rig.visual_stimulation as visual_stimulation
 
 from aind_behavior_implementation_example.rig import (
     AindBehaviorImplementationExampleRig,
@@ -8,8 +10,10 @@ from aind_behavior_implementation_example.rig import (
 
 rig = AindBehaviorImplementationExampleRig(
     rig_name="test_rig",
-    harp_behavior=rig.harp.HarpBehavior(port_name="COM13"),
-    screen=rig.visual_stimulation.Screen()
+    computer_name="test_computer",
+    data_directory=Path("../temp_data"),
+    harp_behavior=harp.HarpBehavior(port_name="COM13"),
+    screen=visual_stimulation.ScreenAssembly()
 )
 
 def main(path_seed: str = "./local/{schema}.json"):

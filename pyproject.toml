@@ -16,7 +16,7 @@ version = "0.0.0rc0"
 readme = {file = "README.md", content-type = "text/markdown"}
 
 dependencies = [
-  "aind_behavior_services>=0.12, <0.13",
+  "aind_behavior_services>=0.13",
   "pydantic-settings"
 ]
 
@@ -31,16 +31,18 @@ Changelog = "https://github.com/AllenNeuralDynamics/Aind.Behavior.Implementation
 data = ["contraqctor>=0.5.3, <0.6.0"]
 
 launcher = [
-    "aind-clabe[aind-services]>=0.9.1",
-    "aind-data-schema>=2.2",
-    "aind-behavior-implementation-example[data]",
-    ]
+    "aind-clabe[aind-services]>=0.9",
+    "aind-data-schema>=2.4",
+    "aind_behavior_implementation_example[data]",
+]
 
 [dependency-groups]
 
 dev = [
     "aind-behavior-implementation-example[launcher]",
     "aind-behavior-implementation-example[data]",
+    "aind-data-schema@git+https://github.com/AllenNeuralDynamics/aind-data-schema@dev",
+    "aind-data-schema-models@git+https://github.com/AllenNeuralDynamics/aind-data-schema-models@main",
     "ruff",
     "codespell",
 ]

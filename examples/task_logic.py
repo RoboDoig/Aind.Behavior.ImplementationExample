@@ -1,6 +1,6 @@
 import os
 
-import aind_behavior_services.task_logic.distributions as distributions
+import aind_behavior_services.task.distributions as distributions
 from aind_behavior_curriculum import Stage, TrainerState
 
 from aind_behavior_implementation_example.task_logic import (

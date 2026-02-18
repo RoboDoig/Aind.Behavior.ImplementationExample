@@ -64,6 +64,8 @@ launcher = [
 [package.dev-dependencies]
 dev = [
     { name = "aind-behavior-implementation-example", extra = ["data", "launcher"] },
+    { name = "aind-data-schema" },
+    { name = "aind-data-schema-models" },
     { name = "codespell" },
     { name = "ruff" },
 ]
@@ -81,9 +83,9 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "aind-behavior-implementation-example", extras = ["data"], marker = "extra == 'launcher'" },
-    { name = "aind-behavior-services", specifier = ">=0.12,<0.13" },
-    { name = "aind-clabe", extras = ["aind-services"], marker = "extra == 'launcher'", specifier = ">=0.9.1" },
-    { name = "aind-data-schema", marker = "extra == 'launcher'", specifier = ">=2.2" },
+    { name = "aind-behavior-services", specifier = ">=0.13" },
+    { name = "aind-clabe", extras = ["aind-services"], marker = "extra == 'launcher'", specifier = ">=0.9" },
+    { name = "aind-data-schema", marker = "extra == 'launcher'", specifier = ">=2.4" },
     { name = "contraqctor", marker = "extra == 'data'", specifier = ">=0.5.3,<0.6.0" },
     { name = "pydantic-settings" },
 ]
@@ -93,6 +95,8 @@ provides-extras = ["data", "launcher"]
 dev = [
     { name = "aind-behavior-implementation-example", extras = ["data"] },
     { name = "aind-behavior-implementation-example", extras = ["launcher"] },
+    { name = "aind-data-schema", git = "https://github.com/AllenNeuralDynamics/aind-data-schema?rev=dev" },
+    { name = "aind-data-schema-models", git = "https://github.com/AllenNeuralDynamics/aind-data-schema-models?rev=main" },
     { name = "codespell" },
     { name = "ruff" },
 ]
@@ -108,7 +112,7 @@ docs = [
 
 [[package]]
 name = "aind-behavior-services"
-version = "0.12.5"
+version = "0.13.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aind-behavior-curriculum" },
@@ -117,9 +121,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/01/6c71f219f5078d7ec3b0507724c2b63ec0af3c8571024053daa469d32e77/aind_behavior_services-0.12.5.tar.gz", hash = "sha256:ebcb1f56852265b988a777b22eeb1a9e4952c4cc7328b0e8c749844593372ccd", size = 27423, upload-time = "2025-11-06T19:06:26.875Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e8/52/169fe25fb69cb249ac86408cad77bcce0950e60cc6491e0117c26f206e91/aind_behavior_services-0.13.0.tar.gz", hash = "sha256:21874c1a4555ab2a3c2afef895f279dda48ea0cc3dbc6a7a2ee6fbd7139dc544", size = 25839, upload-time = "2026-01-29T17:13:41.928Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/89/3c/3d28d25645df3502f1a708483623e3a225c1f195adf2cef5e1727a7cf8b9/aind_behavior_services-0.12.5-py3-none-any.whl", hash = "sha256:fd6d3b60d07fd5bc31ecade227c68f97122e9591e78919098e06fe72b6e1d679", size = 38243, upload-time = "2025-11-06T19:06:25.67Z" },
+    { url = "https://files.pythonhosted.org/packages/9b/35/6df8230287d3747ff04192b16bd61aec4bbf4867271c619960f5f66ea222/aind_behavior_services-0.13.0-py3-none-any.whl", hash = "sha256:9b0fe77c0a4ecddf9fcf1b1d8e791de2e16ad36425d053fc587f195f88bb7286", size = 35478, upload-time = "2026-01-29T17:13:40.979Z" },
 ]
 
 [[package]]
@@ -158,30 +162,22 @@ aind-services = [
 
 [[package]]
 name = "aind-data-schema"
-version = "2.5.0"
-source = { registry = "https://pypi.org/simple" }
+version = "2.4.0"
+source = { git = "https://github.com/AllenNeuralDynamics/aind-data-schema?rev=dev#93cabc44851b030d15a61e8bab5af2a64255f337" }
 dependencies = [
     { name = "aind-data-schema-models" },
     { name = "pydantic" },
     { name = "pydantic-extra-types" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/92/30/a90d1a367733db0a813a5f5bebbc3cd837b59b1b46e3bd222978476e7517/aind_data_schema-2.5.0.tar.gz", hash = "sha256:9676f1afc4ac213444c0fc205d912589dcea54f93d5a2edacd64ad0041b4b81a", size = 891196, upload-time = "2026-02-17T22:51:23.651Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d1/9e/af85e8cf319dd5822efa0cb33c5e7f7cae484b4c644dfb285c2a54f5ddfc/aind_data_schema-2.5.0-py3-none-any.whl", hash = "sha256:1e91fcf73b4b8625ba600bd76a2bfe261182b1279735e1df125ee7ed4c817b05", size = 90825, upload-time = "2026-02-17T22:51:21.962Z" },
-]
 
 [[package]]
 name = "aind-data-schema-models"
 version = "5.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/AllenNeuralDynamics/aind-data-schema-models?rev=main#049f4319ab0c69874cc88bc04257c505bdb52ec5" }
 dependencies = [
     { name = "importlib-resources" },
     { name = "pydantic" },
     { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1a/37/e18ec9fa2fb2276c7774bca8dd0940a342002f79ca5a90aca207e979aa6b/aind_data_schema_models-5.3.0.tar.gz", hash = "sha256:348dc170df68b1aa8f36f1df063c58cfae5899315130274c74b365f9400587a0", size = 340446, upload-time = "2026-02-11T21:30:39.069Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/19/65/b7ec5a4744add259390ea09d9eaa2828af1ae73b3b7f2547684b72b95462/aind_data_schema_models-5.3.0-py3-none-any.whl", hash = "sha256:705575b124222d0f137fe988f3c1b66fd8cc77087517a325d4c2e9eb6772e56e", size = 309892, upload-time = "2026-02-11T21:30:37.507Z" },
 ]
 
 [[package]]
@@ -1283,9 +1279,9 @@ name = "msal"
 version = "1.35.0b1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cryptography" },
-    { name = "pyjwt", extra = ["crypto"] },
-    { name = "requests" },
+    { name = "cryptography", marker = "sys_platform == 'win32'" },
+    { name = "pyjwt", extra = ["crypto"], marker = "sys_platform == 'win32'" },
+    { name = "requests", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0e/7a/6880016fab1720981b54db844c32af6f2e5e90aac21575ad6e54e1840313/msal-1.35.0b1.tar.gz", hash = "sha256:fe8143079183a5c952cd9f3ba66a148fe7bae9fb9952bd0e834272bfbeb34508", size = 157573, upload-time = "2026-01-06T23:51:56.958Z" }
 wheels = [
@@ -1800,7 +1796,7 @@ wheels = [
 
 [package.optional-dependencies]
 crypto = [
-    { name = "cryptography" },
+    { name = "cryptography", marker = "sys_platform == 'win32'" },
 ]
 
 [[package]]
