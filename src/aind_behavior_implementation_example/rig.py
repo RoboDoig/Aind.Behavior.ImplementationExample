@@ -9,4 +9,4 @@ from aind_behavior_implementation_example import __semver__
 class AindBehaviorImplementationExampleRig(rig.AindBehaviorRigModel):
     version: Literal[__semver__] = __semver__
     harp_behavior: rig.harp.HarpBehavior
-    visual_display: rig.visual_stimulation.Screen
+    screen: rig.visual_stimulation.Screen

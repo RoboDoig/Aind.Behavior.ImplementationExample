@@ -25,14 +25,14 @@ namespace AindBehaviorImplementationExampleDataSchema
     
         private HarpBehavior _harpBehavior;
     
-        private Screen _visualDisplay;
+        private Screen _screen;
     
         public AindBehaviorImplementationExampleRig()
         {
             _aindBehaviorServicesPkgVersion = "0.12.5";
             _version = "0.0.0-rc0";
             _harpBehavior = new HarpBehavior();
-            _visualDisplay = new Screen();
+            _screen = new Screen();
         }
     
         protected AindBehaviorImplementationExampleRig(AindBehaviorImplementationExampleRig other)
@@ -42,7 +42,7 @@ namespace AindBehaviorImplementationExampleDataSchema
             _computerName = other._computerName;
             _rigName = other._rigName;
             _harpBehavior = other._harpBehavior;
-            _visualDisplay = other._visualDisplay;
+            _screen = other._screen;
         }
     
         [Newtonsoft.Json.JsonPropertyAttribute("aind_behavior_services_pkg_version")]
@@ -120,16 +120,16 @@ namespace AindBehaviorImplementationExampleDataSchema
         }
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("visual_display", Required=Newtonsoft.Json.Required.Always)]
-        public Screen VisualDisplay
+        [Newtonsoft.Json.JsonPropertyAttribute("screen", Required=Newtonsoft.Json.Required.Always)]
+        public Screen Screen
         {
             get
             {
-                return _visualDisplay;
+                return _screen;
             }
             set
             {
-                _visualDisplay = value;
+                _screen = value;
             }
         }
     
@@ -150,7 +150,7 @@ namespace AindBehaviorImplementationExampleDataSchema
             stringBuilder.Append("ComputerName = " + _computerName + ", ");
             stringBuilder.Append("RigName = " + _rigName + ", ");
             stringBuilder.Append("HarpBehavior = " + _harpBehavior + ", ");
-            stringBuilder.Append("VisualDisplay = " + _visualDisplay);
+            stringBuilder.Append("Screen = " + _screen);
             return true;
         }
     

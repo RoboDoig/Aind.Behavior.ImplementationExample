@@ -27,14 +27,14 @@
         "harp_behavior": {
           "$ref": "#/$defs/HarpBehavior"
         },
-        "visual_display": {
+        "screen": {
           "$ref": "#/$defs/Screen"
         }
       },
       "required": [
         "rig_name",
         "harp_behavior",
-        "visual_display"
+        "screen"
       ],
       "title": "AindBehaviorImplementationExampleRig",
       "type": "object"

@@ -9,7 +9,7 @@ from aind_behavior_implementation_example.rig import (
 rig = AindBehaviorImplementationExampleRig(
     rig_name="test_rig",
     harp_behavior=rig.harp.HarpBehavior(port_name="COM13"),
-    visual_display=rig.visual_stimulation.Screen()
+    screen=rig.visual_stimulation.Screen()
 )
 
 def main(path_seed: str = "./local/{schema}.json"):
