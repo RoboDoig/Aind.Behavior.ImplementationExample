@@ -9,7 +9,7 @@ A library that defines AIND data schema for a behavior experiment.
 
 Runs a simple human behavior experiment with a behavior board to demonstrate the 'full-stack' implementation of the aind-behavior model.
 
-The task is a time estimation task. When a particular visual stimulus is shown, the subject must try and make a response `x` seconds after the stimulus. The time period depends on the stimulus type. 
+The task is a time estimation task. When a particular visual stimulus is shown, the subject must try and make a response `x` seconds after the stimulus. The time period depends on the stimulus parameters. In this case, gratings with a particular temporal frequency determine what the target time interval `x` should be.
 
 After a response, the subject is shown the difference between the intended time delay and the response time delay.
 
