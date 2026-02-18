@@ -16,8 +16,8 @@ task_logic = AindBehaviorImplementationExampleTaskLogic(
             Trial(temporal_frequency=1, target_interval=1),
             Trial(temporal_frequency=1, target_interval=1),
             Trial(temporal_frequency=1, target_interval=1),
-            Trial(temporal_frequency=1, target_interval=1),
-            Trial(temporal_frequency=1, target_interval=1)
+            Trial(temporal_frequency=2, target_interval=2),
+            Trial(temporal_frequency=2, target_interval=2)
         ]
     ),
 )

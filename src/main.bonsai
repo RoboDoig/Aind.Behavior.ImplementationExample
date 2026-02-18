@@ -146,7 +146,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:CreateRandom">
-                <num:Seed>6</num:Seed>
+                <num:Seed>8</num:Seed>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -457,36 +457,48 @@ Item3 as Right)</scr:Expression>
         </Workflow>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
-        <Name>Draw3DStim</Name>
+        <Name>TaskLogicParameters</Name>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
-        <Left>0</Left>
-        <Right>1</Right>
-        <Bottom>0</Bottom>
-        <Top>1</Top>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Trials</Selector>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-        <LocationX>0.5</LocationX>
-        <LocationY>0.45</LocationY>
-        <Layer>0</Layer>
-        <ExtentX>1</ExtentX>
-        <ExtentY>0.5</ExtentY>
-        <SpatialFrequency>10</SpatialFrequency>
-        <TemporalFrequency>1</TemporalFrequency>
-        <Phase>0</Phase>
-        <Angle>0</Angle>
-        <SquareWave>false</SquareWave>
-        <Contrast>1</Contrast>
-        <DutyCycle xsi:nil="true" />
-        <Radius>1</Radius>
-        <Aperture>1</Aperture>
-        <Opacity>1</Opacity>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:CreateObservable">
+        <Name>DoTrial</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Take">
+                <rx:Count>1</rx:Count>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:AsyncSubject">
+              <Name>Trial</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Concat" />
       </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
