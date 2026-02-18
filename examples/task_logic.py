@@ -6,11 +6,20 @@ from aind_behavior_curriculum import Stage, TrainerState
 from aind_behavior_implementation_example.task_logic import (
     AindBehaviorImplementationExampleTaskLogic,
     AindBehaviorImplementationExampleTaskParameters,
+    Trial
 )
 
 
 task_logic = AindBehaviorImplementationExampleTaskLogic(
-    task_parameters=AindBehaviorImplementationExampleTaskParameters(),
+    task_parameters=AindBehaviorImplementationExampleTaskParameters(
+        trials=[
+            Trial(temporal_frequency=1, target_interval=1),
+            Trial(temporal_frequency=1, target_interval=1),
+            Trial(temporal_frequency=1, target_interval=1),
+            Trial(temporal_frequency=1, target_interval=1),
+            Trial(temporal_frequency=1, target_interval=1)
+        ]
+    ),
 )
 
 

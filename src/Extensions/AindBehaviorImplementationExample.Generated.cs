@@ -337,15 +337,19 @@ namespace AindBehaviorImplementationExampleDataSchema
     
         private string _aindBehaviorServicesPkgVersion;
     
+        private System.Collections.Generic.List<Trial> _trials;
+    
         public AindBehaviorImplementationExampleTaskParameters()
         {
             _aindBehaviorServicesPkgVersion = "0.12.5";
+            _trials = new System.Collections.Generic.List<Trial>();
         }
     
         protected AindBehaviorImplementationExampleTaskParameters(AindBehaviorImplementationExampleTaskParameters other)
         {
             _rngSeed = other._rngSeed;
             _aindBehaviorServicesPkgVersion = other._aindBehaviorServicesPkgVersion;
+            _trials = other._trials;
         }
     
         /// <summary>
@@ -379,6 +383,20 @@ namespace AindBehaviorImplementationExampleDataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("trials", Required=Newtonsoft.Json.Required.Always)]
+        public System.Collections.Generic.List<Trial> Trials
+        {
+            get
+            {
+                return _trials;
+            }
+            set
+            {
+                _trials = value;
+            }
+        }
+    
         public System.IObservable<AindBehaviorImplementationExampleTaskParameters> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new AindBehaviorImplementationExampleTaskParameters(this)));
@@ -392,7 +410,8 @@ namespace AindBehaviorImplementationExampleDataSchema
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("RngSeed = " + _rngSeed + ", ");
-            stringBuilder.Append("AindBehaviorServicesPkgVersion = " + _aindBehaviorServicesPkgVersion);
+            stringBuilder.Append("AindBehaviorServicesPkgVersion = " + _aindBehaviorServicesPkgVersion + ", ");
+            stringBuilder.Append("Trials = " + _trials);
             return true;
         }
     
@@ -1652,6 +1671,84 @@ namespace AindBehaviorImplementationExampleDataSchema
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.6.1.0 (Newtonsoft.Json v13.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Trial
+    {
+    
+        private double _temporalFrequency;
+    
+        private double _targetInterval;
+    
+        public Trial()
+        {
+        }
+    
+        protected Trial(Trial other)
+        {
+            _temporalFrequency = other._temporalFrequency;
+            _targetInterval = other._targetInterval;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("temporal_frequency", Required=Newtonsoft.Json.Required.Always)]
+        public double TemporalFrequency
+        {
+            get
+            {
+                return _temporalFrequency;
+            }
+            set
+            {
+                _temporalFrequency = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("target_interval", Required=Newtonsoft.Json.Required.Always)]
+        public double TargetInterval
+        {
+            get
+            {
+                return _targetInterval;
+            }
+            set
+            {
+                _targetInterval = value;
+            }
+        }
+    
+        public System.IObservable<Trial> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Trial(this)));
+        }
+    
+        public System.IObservable<Trial> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Trial(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("TemporalFrequency = " + _temporalFrequency + ", ");
+            stringBuilder.Append("TargetInterval = " + _targetInterval);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.6.1.0 (Newtonsoft.Json v13.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Vector3
     {
     
@@ -1832,6 +1929,11 @@ namespace AindBehaviorImplementationExampleDataSchema
             return Process<Screen>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Trial> source)
+        {
+            return Process<Trial>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Vector3> source)
         {
             return Process<Vector3>(source);
@@ -1857,6 +1959,7 @@ namespace AindBehaviorImplementationExampleDataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplaysCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HarpBehavior>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Screen>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Vector3>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
