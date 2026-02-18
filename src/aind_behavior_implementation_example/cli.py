@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, CliApp, CliSubCommand
 
 from aind_behavior_implementation_example import __semver__, regenerate
 # from aind_behavior_implementation_example.data_mappers import DataMapperCli
-# from aind_behavior_implementation_example.data_qc import DataQcCli
+from aind_behavior_implementation_example.data_qc import DataQcCli
 
 
 class VersionCli(RootModel):
@@ -24,7 +24,7 @@ class DslRegenerateCli(RootModel):
 
 class VrForagingCli(BaseSettings, cli_prog_name="vr-foraging", cli_kebab_case=True):
     # data_mapper: CliSubCommand[DataMapperCli] = Field(description="Generate metadata for aind-data-schema.")
-    # data_qc: CliSubCommand[DataQcCli] = Field(description="Run data quality checks.")
+    data_qc: CliSubCommand[DataQcCli] = Field(description="Run data quality checks.")
     version: CliSubCommand[VersionCli] = Field(
         description="Print the version of the vr-foraging package.",
     )
