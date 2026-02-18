@@ -6,7 +6,11 @@ from aind_behavior_implementation_example.rig import (
     AindBehaviorImplementationExampleRig,
 )
 
-rig = AindBehaviorImplementationExampleRig(rig_name="test_rig")
+rig = AindBehaviorImplementationExampleRig(
+    rig_name="test_rig",
+    harp_behavior=rig.harp.HarpBehavior(port_name="COM13"),
+    screen=rig.visual_stimulation.Screen()
+)
 
 def main(path_seed: str = "./local/{schema}.json"):
     os.makedirs(os.path.dirname(path_seed), exist_ok=True)
